@@ -1,0 +1,4 @@
+export const TELEGRAM_BOT_USERNAME =
+  process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME ?? "YOUR_BOT_USERNAME";
+
+export const TELEGRAM_URL = `https://t.me/${TELEGRAM_BOT_USERNAME}`;
