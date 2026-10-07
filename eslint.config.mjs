@@ -1,15 +1,15 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import nextPlugin from "@next/eslint-plugin-next";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  globalIgnores([
-    ".next/**",
-    "out/**",
-    "next-env.d.ts",
-  ]),
+export default defineConfig([
+	{
+		plugins: {
+			"@next/next": nextPlugin,
+		},
+		rules: {
+			...nextPlugin.configs.recommended.rules,
+			...nextPlugin.configs["core-web-vitals"].rules,
+		},
+	},
+	globalIgnores([".next/**", "out/**", "next-env.d.ts"]),
 ]);
-
-export default eslintConfig;
